@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.Icon?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="472.0" prefWidth="598.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane layoutX="19.0" layoutY="30.0" prefHeight="64.0" prefWidth="572.0" style="-fx-background-color: #FFCCCC;">
+         <children>
+            <ImageView fitHeight="48.0" fitWidth="40.0" layoutX="6.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@aims2.jpg" />
+               </image>
+            </ImageView>
+            <Pane layoutX="142.0" layoutY="7.0" prefHeight="36.0" prefWidth="234.0" style="-fx-background-color: #FFFFFF;">
+               <children>
+                  <Icon content="SEARCH" layoutX="209.0" layoutY="5.0" />
+                  <Text layoutX="37.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rattanak Neariroth - 20180278" />
+               </children>
+            </Pane>
+            <Button layoutX="395.0" layoutY="8.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="86.0" text="Search" />
+            <ImageView fitHeight="36.0" fitWidth="31.0" layoutX="515.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Downloads/263142.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="-2.0" layoutY="81.0" prefHeight="390.0" prefWidth="599.0" style="-fx-background-color: #F7F9F9;">
+         <children>
+            <Pane layoutX="5.0" layoutY="14.0" prefHeight="137.0" prefWidth="169.0" style="-fx-border-color: #D35400;">
+               <children>
+                  <ImageView fitHeight="78.0" fitWidth="47.0" layoutX="10.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@harry.png" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="80.0" layoutY="18.0" strokeDashOffset="10.0" strokeMiterLimit="20.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Book 1" textAlignment="CENTER" />
+                  <Pane layoutX="66.0" layoutY="21.0" prefHeight="111.0" prefWidth="100.0" style="-fx-border-color: #52BE80;">
+                     <children>
+                        <Text layoutX="5.0" layoutY="19.0" opacity="0.75" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 12;" text="Price  10,000">
+                           <cursor>
+                              <Cursor fx:constant="NW_RESIZE" />
+                           </cursor>
+                        </Text>
+                        <Text layoutX="6.0" layoutY="38.0" opacity="0.64" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 12;" text="avail  64" />
+                        <Spinner layoutX="4.0" layoutY="43.0" prefHeight="26.0" prefWidth="77.0" />
+                        <Button layoutX="2.0" layoutY="75.0" minHeight="16.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="86.0" style="-fx-background-color: #641E16;" text="Add to cart" textFill="#f8eeee">
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                        </Button>
+                        <Text layoutX="15.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" />
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+            <Pane layoutX="196.0" layoutY="14.0" prefHeight="137.0" prefWidth="169.0" style="-fx-border-color: #D35400;">
+               <children>
+                  <ImageView fitHeight="78.0" fitWidth="47.0" layoutX="10.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@harry.png" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="80.0" layoutY="18.0" strokeDashOffset="10.0" strokeMiterLimit="20.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Book 2" textAlignment="CENTER" />
+                  <Pane layoutX="61.0" layoutY="23.0" prefHeight="111.0" prefWidth="100.0" style="-fx-border-color: #52BE80;">
+                     <children>
+                        <Text layoutX="5.0" layoutY="19.0" opacity="0.75" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 12;" text="Price 10,000 ">
+                           <cursor>
+                              <Cursor fx:constant="NW_RESIZE" />
+                           </cursor>
+                        </Text>
+                        <Text layoutX="6.0" layoutY="38.0" opacity="0.64" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 12;" text="avail  64" />
+                        <Spinner layoutX="4.0" layoutY="43.0" prefHeight="26.0" prefWidth="77.0" />
+                        <Button layoutX="2.0" layoutY="75.0" minHeight="16.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="86.0" style="-fx-background-color: #641E16;" text="Add to cart" textFill="#f5ebeb">
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                        </Button>
+                        <Text layoutX="21.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" wrappingWidth="13.0" />
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+            <Pane layoutX="384.0" layoutY="14.0" prefHeight="137.0" prefWidth="169.0" style="-fx-border-color: #D35400;">
+               <children>
+                  <ImageView fitHeight="78.0" fitWidth="47.0" layoutX="10.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@harry.png" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="80.0" layoutY="18.0" strokeDashOffset="10.0" strokeMiterLimit="20.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Book 2" textAlignment="CENTER" />
+                  <Pane layoutX="52.0" layoutY="20.0" prefHeight="111.0" prefWidth="100.0" style="-fx-border-color: #52BE80;">
+                     <children>
+                        <Text layoutX="5.0" layoutY="19.0" opacity="0.75" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 12;" text="Price  10,000">
+                           <cursor>
+                              <Cursor fx:constant="NW_RESIZE" />
+                           </cursor>
+                        </Text>
+                        <Text layoutX="6.0" layoutY="38.0" opacity="0.64" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 12;" text="avail  64" />
+                        <Spinner layoutX="4.0" layoutY="43.0" prefHeight="26.0" prefWidth="77.0" />
+                        <Button layoutX="2.0" layoutY="75.0" minHeight="16.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="86.0" style="-fx-background-color: #641E16;" text="Add to cart" textFill="#ebdbdb">
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                        </Button>
+                        <Text layoutX="24.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" />
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+            <Pane layoutX="4.0" layoutY="192.0" prefHeight="137.0" prefWidth="169.0" style="-fx-border-color: #D35400;">
+               <children>
+                  <ImageView fitHeight="78.0" fitWidth="47.0" layoutX="10.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@harry.png" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="80.0" layoutY="18.0" strokeDashOffset="10.0" strokeMiterLimit="20.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Book 4" textAlignment="CENTER" />
+                  <Pane layoutX="61.0" layoutY="23.0" prefHeight="111.0" prefWidth="100.0" style="-fx-border-color: #52BE80;">
+                     <children>
+                        <Text layoutX="5.0" layoutY="19.0" opacity="0.75" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 12;" text="Price 10,000">
+                           <cursor>
+                              <Cursor fx:constant="NW_RESIZE" />
+                           </cursor>
+                        </Text>
+                        <Text layoutX="6.0" layoutY="38.0" opacity="0.64" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 12;" text="avail  64" />
+                        <Spinner layoutX="4.0" layoutY="43.0" prefHeight="26.0" prefWidth="77.0" />
+                        <Button layoutX="2.0" layoutY="75.0" minHeight="16.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="86.0" style="-fx-background-color: #641E16;" text="Add to cart" textFill="#f2e9e9">
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                        </Button>
+                        <Text layoutX="24.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" />
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+            <Pane layoutX="196.0" layoutY="192.0" prefHeight="137.0" prefWidth="169.0" style="-fx-border-color: #D35400;">
+               <children>
+                  <ImageView fitHeight="78.0" fitWidth="47.0" layoutX="10.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@harry.png" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="80.0" layoutY="18.0" strokeDashOffset="10.0" strokeMiterLimit="20.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Book 5" textAlignment="CENTER" />
+                  <Pane layoutX="61.0" layoutY="23.0" prefHeight="111.0" prefWidth="100.0" style="-fx-border-color: #52BE80;">
+                     <children>
+                        <Text layoutX="5.0" layoutY="19.0" opacity="0.75" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 12;" text="Price 10,000">
+                           <cursor>
+                              <Cursor fx:constant="NW_RESIZE" />
+                           </cursor>
+                        </Text>
+                        <Text layoutX="6.0" layoutY="38.0" opacity="0.64" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 12;" text="avail  64" />
+                        <Spinner layoutX="4.0" layoutY="43.0" prefHeight="26.0" prefWidth="77.0" />
+                        <Button layoutX="2.0" layoutY="75.0" minHeight="16.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="86.0" style="-fx-background-color: #641E16;" text="Add to cart" textFill="#fff9f9">
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                        </Button>
+                        <Text layoutX="14.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" />
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+            <Pane layoutX="384.0" layoutY="192.0" prefHeight="137.0" prefWidth="169.0" style="-fx-border-color: #D35400;">
+               <children>
+                  <ImageView fitHeight="78.0" fitWidth="47.0" layoutX="10.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@harry.png" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="80.0" layoutY="18.0" strokeDashOffset="10.0" strokeMiterLimit="20.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Book 6" textAlignment="CENTER" />
+                  <Pane layoutX="61.0" layoutY="23.0" prefHeight="111.0" prefWidth="100.0" style="-fx-border-color: #52BE80;">
+                     <children>
+                        <Text layoutX="5.0" layoutY="19.0" opacity="0.75" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 12;" text="Price 10,000">
+                           <cursor>
+                              <Cursor fx:constant="NW_RESIZE" />
+                           </cursor>
+                        </Text>
+                        <Text layoutX="6.0" layoutY="38.0" opacity="0.64" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 12;" text="avail  64" />
+                        <Spinner layoutX="4.0" layoutY="43.0" prefHeight="26.0" prefWidth="77.0" />
+                        <Button layoutX="2.0" layoutY="75.0" minHeight="16.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="86.0" style="-fx-background-color: #641E16;" text="Add to cart" textFill="#f2e6e6">
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                        </Button>
+                        <Text layoutX="11.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" />
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </children>
+</Pane>

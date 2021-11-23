@@ -1,115 +1,361 @@
-CREATE TABLE "SONNH_Media" (
-  "id" SERIAL PRIMARY KEY NOT NULL,
-  "category" VARCHAR(45) NOT NULL,
-  "price" INTEGER NOT NULL,
-  "quantity" INTEGER NOT NULL,
-  "title" VARCHAR(45) NOT NULL,
-  "value" INTEGER NOT NULL,
-  "imageUrl" VARCHAR(45) NOT NULL
-);
+-- phpMyAdmin SQL Dump
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost
+-- Generation Time: Nov 23, 2021 at 10:26 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.11
 
-CREATE TABLE "SONNH_CD" (
-  "id" INTEGER PRIMARY KEY NOT NULL,
-  "artist" VARCHAR(45) NOT NULL,
-  "recordLabel" VARCHAR(45) NOT NULL,
-  "musicType" VARCHAR(45) NOT NULL,
-  "releasedDate" DATE
-);
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
 
-CREATE TABLE "SONNH_Book" (
-  "id" INTEGER PRIMARY KEY NOT NULL,
-  "author" VARCHAR(45) NOT NULL,
-  "coverType" VARCHAR(45) NOT NULL,
-  "publisher" VARCHAR(45) NOT NULL,
-  "publishDate" DATETIME NOT NULL,
-  "numOfPages" INTEGER NOT NULL,
-  "language" VARCHAR(45) NOT NULL,
-  "bookCategory" VARCHAR(45) NOT NULL
-);
 
-CREATE TABLE "SONNH_DeleveryInfo" (
-  "id" SERIAL PRIMARY KEY NOT NULL,
-  "name" VARCHAR(45),
-  "province" VARCHAR(45),
-  "instructions" VARCHAR(200),
-  "address" VARCHAR(100)
-);
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
-CREATE TABLE "SONNH_Card" (
-  "id" SERIAL PRIMARY KEY NOT NULL,
-  "cardCode" VARCHAR(15) NOT NULL,
-  "owner" VARCHAR(45) NOT NULL,
-  "cvvCode" VARCHAR(3) NOT NULL,
-  "dateExpired" VARCHAR(4) NOT NULL
-);
+--
+-- Database: `TKXD-Lab3-Neariroth-dtb`
+--
 
-CREATE TABLE "SONNH_DVD" (
-  "id" INTEGER PRIMARY KEY NOT NULL,
-  "discType" VARCHAR(45) NOT NULL,
-  "director" VARCHAR(45) NOT NULL,
-  "runtime" INTEGER NOT NULL,
-  "studio" VARCHAR(45) NOT NULL,
-  "subtitle" VARCHAR(45) NOT NULL,
-  "releasedDate" DATETIME
-);
+-- --------------------------------------------------------
 
-CREATE TABLE "SONNH_Order" (
-  "id" INTEGER NOT NULL,
-  "shippingFees" VARCHAR(45),
-  "deleveryInfoId" INTEGER NOT NULL,
-  PRIMARY KEY ("id", "deleveryInfoId")
-);
+--
+-- Table structure for table `book_NearirothR`
+--
 
-CREATE TABLE "SONNH_OrderMedia" (
-  "orderID" INTEGER NOT NULL,
-  "price" INTEGER NOT NULL,
-  "quantity" INTEGER NOT NULL,
-  "mediaId" INTEGER NOT NULL,
-  PRIMARY KEY ("orderID", "mediaId")
-);
+CREATE TABLE `book_NearirothR` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `author` varchar(45) NOT NULL,
+  `coverType` varchar(45) NOT NULL,
+  `publishDate` datetime NOT NULL,
+  `numOfPages` int(11) NOT NULL,
+  `language` varchar(45) NOT NULL,
+  `bookCategory` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE "SONNH_Invoice" (
-  "id" INTEGER PRIMARY KEY NOT NULL,
-  "totalAmount" INTEGER NOT NULL,
-  "orderId" INTEGER NOT NULL
-);
+-- --------------------------------------------------------
 
-CREATE TABLE "SONNH_PaymentTransaction" (
-  "id" INTEGER NOT NULL,
-  "createAt" DATETIME NOT NULL,
-  "content" VARCHAR(45) NOT NULL,
-  "method" VARCHAR(45),
-  "cardId" INTEGER NOT NULL,
-  "invoiceId" INTEGER NOT NULL,
-  PRIMARY KEY ("id", "cardId", "invoiceId")
-);
+--
+-- Table structure for table `cart_NearirothR`
+--
 
-ALTER TABLE "SONNH_CD" ADD FOREIGN KEY ("id") REFERENCES "SONNH_Media" ("id");
+CREATE TABLE `cart_NearirothR` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `cardCode` varchar(15) NOT NULL,
+  `owner` varchar(45) NOT NULL,
+  `cwCode` varchar(3) NOT NULL,
+  `dateExpired` varchar(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-ALTER TABLE "SONNH_Book" ADD FOREIGN KEY ("id") REFERENCES "SONNH_Media" ("id");
+-- --------------------------------------------------------
 
-ALTER TABLE "SONNH_DVD" ADD FOREIGN KEY ("id") REFERENCES "SONNH_Media" ("id");
+--
+-- Table structure for table `cd_NearirothR`
+--
 
-ALTER TABLE "SONNH_Order" ADD FOREIGN KEY ("deleveryInfoId") REFERENCES "SONNH_DeleveryInfo" ("id");
+CREATE TABLE `cd_NearirothR` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `artist` varchar(45) NOT NULL,
+  `recordLabel` varchar(45) NOT NULL,
+  `musicType` varchar(45) NOT NULL,
+  `releaseDate` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-ALTER TABLE "SONNH_OrderMedia" ADD FOREIGN KEY ("orderID") REFERENCES "SONNH_Order" ("id");
+-- --------------------------------------------------------
 
-ALTER TABLE "SONNH_OrderMedia" ADD FOREIGN KEY ("mediaId") REFERENCES "SONNH_Media" ("id");
+--
+-- Table structure for table `deliveryinfo_NearirothR`
+--
 
-ALTER TABLE "SONNH_Invoice" ADD FOREIGN KEY ("orderId") REFERENCES "SONNH_Order" ("id");
+CREATE TABLE `deliveryinfo_NearirothR` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `name` varchar(45) NOT NULL,
+  `province` varchar(45) NOT NULL,
+  `instructions` varchar(200) NOT NULL,
+  `address` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-ALTER TABLE "SONNH_PaymentTransaction" ADD FOREIGN KEY ("cardId") REFERENCES "SONNH_Card" ("id");
+-- --------------------------------------------------------
 
-ALTER TABLE "SONNH_PaymentTransaction" ADD FOREIGN KEY ("invoiceId") REFERENCES "SONNH_Invoice" ("id");
+--
+-- Table structure for table `dvd_NearirothR`
+--
 
-CREATE INDEX "aims.Order.fk_Order_DeleveryInfo1_idx" ON "SONNH_Order" ("deleveryInfoId");
+CREATE TABLE `dvd_NearirothR` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `discType` varchar(45) NOT NULL,
+  `director` varchar(45) NOT NULL,
+  `runtime` int(11) NOT NULL,
+  `studio` varchar(45) NOT NULL,
+  `subtitle` varchar(45) NOT NULL,
+  `releaseDate` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-CREATE INDEX "aims.OrderMedia.fk_ordermedia_order_idx" ON "SONNH_OrderMedia" ("orderID");
+-- --------------------------------------------------------
 
-CREATE INDEX "aims.OrderMedia.fk_OrderMedia_Media1_idx" ON "SONNH_OrderMedia" ("mediaId");
+--
+-- Table structure for table `invoice_NearirothR`
+--
 
-CREATE INDEX "aims.Invoice.fk_Invoice_Order1_idx" ON "SONNH_Invoice" ("orderId");
+CREATE TABLE `invoice_NearirothR` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `totalAmount` int(11) NOT NULL,
+  `orderId` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-CREATE INDEX "aims.PaymentTransaction.fk_PaymentTransaction_Card1_idx" ON "SONNH_PaymentTransaction" ("cardId");
+-- --------------------------------------------------------
 
-CREATE INDEX "aims.PaymentTransaction.fk_PaymentTransaction_Invoice1_idx" ON "SONNH_PaymentTransaction" ("invoiceId");
+--
+-- Table structure for table `media_NearirothR`
+--
+
+CREATE TABLE `media_NearirothR` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `category` varchar(45) NOT NULL,
+  `price` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `title` varchar(45) NOT NULL,
+  `value` int(11) NOT NULL,
+  `imageUrl` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ordermedia_NearirothR`
+--
+
+CREATE TABLE `ordermedia_NearirothR` (
+  `orderID` int(10) UNSIGNED NOT NULL,
+  `price` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `mediaId` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order_NearirothR`
+--
+
+CREATE TABLE `order_NearirothR` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `shippingFees` varchar(45) NOT NULL,
+  `deliveryInfoId` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `paymenttransaction_NearirothR`
+--
+
+CREATE TABLE `paymenttransaction_NearirothR` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `createAt` datetime NOT NULL,
+  `content` varchar(45) NOT NULL,
+  `method` varchar(45) NOT NULL,
+  `cartId` int(10) UNSIGNED NOT NULL,
+  `invoiceId` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `book_NearirothR`
+--
+ALTER TABLE `book_NearirothR`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `cart_NearirothR`
+--
+ALTER TABLE `cart_NearirothR`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `cd_NearirothR`
+--
+ALTER TABLE `cd_NearirothR`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `deliveryinfo_NearirothR`
+--
+ALTER TABLE `deliveryinfo_NearirothR`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `dvd_NearirothR`
+--
+ALTER TABLE `dvd_NearirothR`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `invoice_NearirothR`
+--
+ALTER TABLE `invoice_NearirothR`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `orderId` (`orderId`);
+
+--
+-- Indexes for table `media_NearirothR`
+--
+ALTER TABLE `media_NearirothR`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ordermedia_NearirothR`
+--
+ALTER TABLE `ordermedia_NearirothR`
+  ADD PRIMARY KEY (`orderID`),
+  ADD KEY `orderID` (`orderID`),
+  ADD KEY `mediaId` (`mediaId`);
+
+--
+-- Indexes for table `order_NearirothR`
+--
+ALTER TABLE `order_NearirothR`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `deliveryInfoId` (`deliveryInfoId`);
+
+--
+-- Indexes for table `paymenttransaction_NearirothR`
+--
+ALTER TABLE `paymenttransaction_NearirothR`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `cartId` (`cartId`),
+  ADD KEY `invoiceId` (`invoiceId`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `book_NearirothR`
+--
+ALTER TABLE `book_NearirothR`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `cart_NearirothR`
+--
+ALTER TABLE `cart_NearirothR`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `cd_NearirothR`
+--
+ALTER TABLE `cd_NearirothR`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `deliveryinfo_NearirothR`
+--
+ALTER TABLE `deliveryinfo_NearirothR`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `dvd_NearirothR`
+--
+ALTER TABLE `dvd_NearirothR`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `invoice_NearirothR`
+--
+ALTER TABLE `invoice_NearirothR`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `media_NearirothR`
+--
+ALTER TABLE `media_NearirothR`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `ordermedia_NearirothR`
+--
+ALTER TABLE `ordermedia_NearirothR`
+  MODIFY `orderID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `order_NearirothR`
+--
+ALTER TABLE `order_NearirothR`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `paymenttransaction_NearirothR`
+--
+ALTER TABLE `paymenttransaction_NearirothR`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `book_NearirothR`
+--
+ALTER TABLE `book_NearirothR`
+  ADD CONSTRAINT `book_NearirothR_ibfk_1` FOREIGN KEY (`id`) REFERENCES `media_NearirothR` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `cart_NearirothR`
+--
+ALTER TABLE `cart_NearirothR`
+  ADD CONSTRAINT `cart_NearirothR_ibfk_1` FOREIGN KEY (`id`) REFERENCES `paymenttransaction_NearirothR` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `deliveryinfo_NearirothR`
+--
+ALTER TABLE `deliveryinfo_NearirothR`
+  ADD CONSTRAINT `deliveryinfo_NearirothR_ibfk_1` FOREIGN KEY (`id`) REFERENCES `order_NearirothR` (`deliveryInfoId`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `dvd_NearirothR`
+--
+ALTER TABLE `dvd_NearirothR`
+  ADD CONSTRAINT `dvd_NearirothR_ibfk_1` FOREIGN KEY (`id`) REFERENCES `media_NearirothR` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `invoice_NearirothR`
+--
+ALTER TABLE `invoice_NearirothR`
+  ADD CONSTRAINT `invoice_NearirothR_ibfk_1` FOREIGN KEY (`id`) REFERENCES `order_NearirothR` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `media_NearirothR`
+--
+ALTER TABLE `media_NearirothR`
+  ADD CONSTRAINT `media_NearirothR_ibfk_1` FOREIGN KEY (`id`) REFERENCES `cd_NearirothR` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `ordermedia_NearirothR`
+--
+ALTER TABLE `ordermedia_NearirothR`
+  ADD CONSTRAINT `ordermedia_NearirothR_ibfk_1` FOREIGN KEY (`orderID`) REFERENCES `media_NearirothR` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `order_NearirothR`
+--
+ALTER TABLE `order_NearirothR`
+  ADD CONSTRAINT `order_NearirothR_ibfk_1` FOREIGN KEY (`id`) REFERENCES `ordermedia_NearirothR` (`orderID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `paymenttransaction_NearirothR`
+--
+ALTER TABLE `paymenttransaction_NearirothR`
+  ADD CONSTRAINT `paymenttransaction_NearirothR_ibfk_1` FOREIGN KEY (`id`) REFERENCES `invoice_NearirothR` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
